@@ -1,0 +1,50 @@
+Uma empresa de agenciamento de mão-de-obra pretende informatizar o seu cadastro de profissionais, 
+candidatos a empregos temporários, objetivando construir um banco de dados onde possa manter os 
+dados cadastrais dos profissionais e seus contratos temporários com as empresas clientes. 
+
+
+O profissional é identificado por um número de controle e, além dessa informação, ficam registrados
+o seu nome, endereço, nascimento e profissão. Os contratos de mão-de-obra temporária são feitos individualmente 
+(um contrato para cada profissional) com as empresas clientes. Cada contrato é identificado por um número único
+ e nele são registrados a empresa contratante, a vigência do contrato (data de início e de término) 
+e o valor pago por hora trabalhada. 
+  
+
+
+As empresas clientes são identificadas por um C.N.P.J.  e possuem um nome e endereço. 
+
+________________________________________________
+
+PROFISSIONAIS: num_con, nome, endereço, nascimento, profissão.
+
+CONTRATOS: codigo_contrato, nome do profissional, empresas contratante, dde, dds, valor,
+
+EMPRESAS: cnpj, nome, endereço
+
+
+________________________________________________
+
+create database exercicio1;
+
+create table PROFISSIONAIS(
+pro_cod integer AUTO_INCREMENT NOT NULL,
+pro_nom varchar(50) NOT NULL,
+pro_end varchar(80),
+pro_ddn date,
+pro_pro varchar(15),
+PRIMARY KEY(pro_cod));
+
+create table CONTRATOS(
+con_cod integer AUTO_INCREMENT NOT NULL,
+con_pro varchar(50) NOT NULL,
+con_emp varchar(50),
+con_dde date,
+con_dds date,
+con_val float,
+PRIMARY KEY(con_cod));
+
+create table EMPRESAS(
+emp_cnp bigint(25),
+emp_nom varchar(50),
+emp_end varchar(80),
+PRIMARY KEY(emp_cnp));
