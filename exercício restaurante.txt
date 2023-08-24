@@ -1,0 +1,40 @@
+Produto: cod do produto*, tipo, nome, dde, dds, quantidade, validade, preço de compra, preço de venda
+
+Pedido: num do pedido*, num da mesa, data do pedido, cod do produto cardapio, adicional, observação, valor, 
+
+Receita: valor da conta, num do pedido*, num_NF(nota fiscal)*, dds, forma de pagamento, descontos, gorjetas.
+
+_______________________________________________________________
+create database RESTAURANTE;
+
+create table PRODUTO(
+pro_cod integer AUTO_INCREMENT NOT NULL,
+pro_nom varchar(50) NOT NULL,
+pro_tipo varchar (50) NOT NULL,
+pro_dde datetime NOT NULL,
+pro_dds datetime NOT NULL,
+pro_vali date,
+pro_qtd tinyint NOT NULL,
+pro_comp interger NOT NULL,
+pro_ven interger NOT NULL,
+PRIMARY KEY(pro_cod));
+
+create table PEDIDO(
+ped_num integer AUTO_INCREMENT NOT NULL,
+ped_mesa tinyint NOT NULL,
+ped_codp smallint AUTO INCREMENT NOT NULL,
+ped_dat datetime NOT NULL,
+ped_add varchar (400),
+ped_obs varchar (400),
+ped_valo smallint NOT NULL,
+PRIMARY KEY(ped_num));
+
+create table RECEITA(
+rec_nf integer AUTO_NINCREMENT NOT NULL,
+rec_cont smallint NOT NULL,
+rec_dds datetime NOT NULL,
+rec_pag varchar (30),
+rec_desc smallint,
+rec_gor smallint,
+ped_num integer,
+PRIMARY KEY(rec_nf, ped_num));
